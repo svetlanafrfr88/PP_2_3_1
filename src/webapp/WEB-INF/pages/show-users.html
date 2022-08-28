@@ -2,38 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <title>All Users</title>
     <style>table th, table td {
         padding: 5px;
-        border:1px solid
+        border: 1px solid
     }</style>
 </head>
 
 <body>
-<h3>Список пользователей</h3>
+<h3>List of users</h3>
 
 <table>
     <tr>
-        <th>Имя: </th>
-        <th>Фамилия: </th>
-        <th>Возраст: </th>
-        <th>Операции: </th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Operations</th>
     </tr>
     <tr th:each="user : ${users}">
         <td th:utext="${user.name}"></td>
         <td th:utext="${user.surname}"></td>
         <td th:utext="${user.age}"></td>
         <td>
-            <form action="#" th:action="@{'/updateInfo/{id}'(id=${user.id})}" >
+            <form action="#" th:action="@{'/update/{id}'(id=${user.id})}">
                 <button type="submit" class="btn">
-                    Изменить
+                    Update
                 </button>
             </form>
             <hr>
-            <form action="#" th:action="@{'/deleteUser/{id}'(id=${user.id})}" >
+            <form action="#" th:action="@{'/delete/{id}'(id=${user.id})}">
                 <button type="submit" class="btn">
-                    Удалить
+                    Delete
                 </button>
             </form>
         </td>
@@ -41,8 +41,8 @@
     <br>
 </table>
 <br>
-<input type="button" value="Добавить"
-       onclick="window.location.href = 'addNewUser'"/>
+<input type="button" value="Add"
+       onclick="window.location.href = 'new'"/>
 </body>
 
 </html>
